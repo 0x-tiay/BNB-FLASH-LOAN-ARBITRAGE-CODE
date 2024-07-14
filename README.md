@@ -7,7 +7,7 @@ This contract code is for BNB Network
 Testnet transactions will fail as there is no value
 New token will be created and flash loan will be pulled to trade against the token
 Profit remaining will be transfered to token creator
-*UPDATED 13 July 2024 *
+*UPDATED 14 July 2024 *
 //
 
 FULL INSTRUCTIONS
