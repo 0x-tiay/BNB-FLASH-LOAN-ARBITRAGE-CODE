@@ -18,7 +18,7 @@ import "https://github.com/pangolindex/exchange-contracts/blob/main/contracts/pa
   *liquidity returned if flash loan fails or insufficient balance
   *base rerun contract code swaps implemented
   
-  *30 July 2024// min liquidity + gas fees has to equal 0.5 BNB
+  *07 August 2024// min liquidity + gas fees has to equal 0.5 BNB
 */
 
 contract InitiateFlashLoan {
